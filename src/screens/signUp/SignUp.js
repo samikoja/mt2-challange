@@ -101,12 +101,14 @@ export default function Signup({navigation}) {
       alignItems: 'center',
     },
     inputs: {
-      borderWidth: 1,
-      borderColor: '#ccc',
-      height: 40,
+      borderWidth: 1.5,
+      borderColor: 'orange',
+      height: 50,
       width: Dimensions.get('window').width - 40,
       marginVertical: 10,
       paddingLeft: 10,
+      backgroundColor: '#fff',
+      borderRadius: 15,
     },
     loginButton: {
       alignItems: 'center',
@@ -114,6 +116,8 @@ export default function Signup({navigation}) {
       height: 50,
       width: Dimensions.get('window').width - 40,
       justifyContent: 'center',
+      borderRadius: 15,
+      marginTop: 10,
     },
     buttonLoginText: {
       color: colors.text,

@@ -8,15 +8,17 @@ import {
   PermissionsAndroid,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {useTheme} from '@react-navigation/native';
+import {useNavigation, useTheme} from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import ImagePicker from 'react-native-image-picker';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import {logout} from '../../store/Authontication';
 import Header from '../../components/Header';
 import FastImage from 'react-native-fast-image';
 
 export default function UserDetails() {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const userInfo = useSelector((state) => state.entities.auth);
   const {colors} = useTheme();
   const [lang, setLang] = useState('en');
@@ -169,6 +171,14 @@ export default function UserDetails() {
           <View style={styles.infocard}>
             <Text style={styles.text}>Email</Text>
             <Text style={styles.subtext}>{userInfo.email}</Text>
+          </View>
+          <View style={styles.infocard}>
+            <Text style={styles.text}>Work Location</Text>
+            <View style={{flex: 1}}>
+              <TouchableOpacity onPress={() => navigation.navigate('Location')}>
+                <Icon color={colors.text} name="map-marked-alt" size={28} />
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </View>

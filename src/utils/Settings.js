@@ -10,16 +10,13 @@ export const BaseSetting = {
   displayName: 'Test',
   appVersion: '1.0.0',
   defaultLanguage: 'en',
-  languageSupport: ['en', 'ar', 'fr'],
+  languageSupport: ['en', 'ar'],
   resourcesLanguage: {
     en: {
       translation: require('../langauge/en.json'),
     },
     ar: {
       translation: require('../langauge/ar.json'),
-    },
-    fr: {
-      translation: require('../langauge/fr.json'),
     },
   },
 };
@@ -28,8 +25,6 @@ export const languageFromCode = (code) => {
   switch (code) {
     case 'en':
       return 'English';
-    case 'fr':
-      return 'French';
     case 'ar':
       return 'Arabic';
 
@@ -42,8 +37,6 @@ export const languageLogo = (code) => {
   switch (code) {
     case 'en':
       return 'En';
-    case 'fr':
-      return 'Fr';
     case 'ar':
       return 'Ar';
 

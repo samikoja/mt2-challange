@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   StyleSheet,
   Text,
@@ -25,6 +25,7 @@ export default function Login() {
   const [username, setUsername] = useState('sami.k');
   const [password, setPassword] = useState('sami@123');
   const [loading, setLoading] = useState(false);
+  const unmounted = useRef(false);
   const dispatch = useDispatch();
   const {height, width} = Dimensions.get('window');
 
@@ -76,6 +77,12 @@ export default function Login() {
       alert('error ', error);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      unmounted.current = true;
+    };
+  }, []);
 
   const handleLogin = async () => {
     if (username.trim() == '' || password.trim() == '') {

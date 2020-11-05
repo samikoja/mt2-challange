@@ -3,18 +3,19 @@ import {StyleSheet, Platform, StatusBar} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
-import BottomTabs from './BottomTabs';
+import {useSelector, useDispatch} from 'react-redux';
+import {initReactI18next} from 'react-i18next';
 
+import BottomTabs from './BottomTabs';
+import Auth from './Auth';
 import ChangeTheme from '../screens/changeTheme/ChangeTheme';
 import ChangeLanguage from '../screens/changeLanguage/ChangeLanguage';
 import DeepLogin from '../screens/deepLogin/DeepLogin';
 import SplashScreen from '../screens/splashScreen/SplashScreen';
 
-import Signup from '../screens/signUp/SignUp';
-import {useSelector, useDispatch} from 'react-redux';
 import {useTheme} from '../utils/Theme';
+import Signup from '../screens/signUp/SignUp';
 import i18n from 'i18next';
-import {initReactI18next} from 'react-i18next';
 import {BaseSetting} from '../utils/Settings';
 
 export default function Main() {

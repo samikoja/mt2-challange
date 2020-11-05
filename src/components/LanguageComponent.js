@@ -23,8 +23,11 @@ const LanguageComponent = ({item, checkedLanguage, setCheckedLanguage}) => {
           <View
             style={{
               backgroundColor: colors.card,
-              padding: 5,
-              borderRadius: 50,
+              width: 30,
+              height: 30,
+              borderRadius: 100,
+              alignItems: 'center',
+              justifyContent: 'center',
             }}>
             <Text style={{color: colors.text, fontWeight: 'bold'}}>
               {languageLogo(item)}

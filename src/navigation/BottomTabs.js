@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Settings from '../screens/settings/Settings';
-import Location from '../screens/location/Location';
-import UserDetails from '../screens/userDetails/UserDetails';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import {useSelector} from 'react-redux';
 import {useTheme} from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
+import Settings from '../screens/settings/Settings';
+import Location from '../screens/location/Location';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import Login from '../screens/login/Login';
+import UserTab from './UserTab';
 
 const BottomTabs = () => {
   const {colors} = useTheme();
@@ -35,13 +35,7 @@ const BottomTabs = () => {
         <Tab.Screen
           options={{
             title:
-              lang == null
-                ? 'Profile'
-                : lang == 'en'
-                ? 'Profile'
-                : lang == 'fr'
-                ? 'Profile'
-                : 'الحساب',
+              lang == null ? 'Profile' : lang == 'en' ? 'Profile' : 'الحساب',
             tabBarIcon: ({focused}) => (
               <Icon
                 color={focused ? colors.text : 'grey'}
@@ -50,20 +44,14 @@ const BottomTabs = () => {
               />
             ),
           }}
-          name="UserDetails"
-          component={UserDetails}
+          name="UserTab"
+          component={UserTab}
         />
       ) : (
         <Tab.Screen
           options={{
             title:
-              lang == null
-                ? 'Login'
-                : lang == 'en'
-                ? 'Login'
-                : lang == 'fr'
-                ? 'identifier'
-                : 'تسجيل دخول',
+              lang == null ? 'Login' : lang == 'en' ? 'Login' : 'تسجيل دخول',
             tabBarIcon: ({focused}) => (
               <Icon
                 color={focused ? colors.text : 'grey'}
@@ -78,38 +66,9 @@ const BottomTabs = () => {
       )}
 
       <Tab.Screen
-        name="Location"
-        options={{
-          title:
-            lang == null
-              ? 'Location'
-              : lang == 'en'
-              ? 'Location'
-              : lang == 'fr'
-              ? 'Emplacement'
-              : 'موقعك',
-          tabBarIcon: ({focused}) => (
-            <Icon
-              color={focused ? colors.text : 'grey'}
-              name="map-marker-alt"
-              size={22}
-            />
-          ),
-        }}
-        component={Location}
-      />
-
-      <Tab.Screen
         name="Settings"
         options={{
-          title:
-            lang == null
-              ? 'Settings'
-              : lang == 'en'
-              ? 'Settings'
-              : lang == 'fr'
-              ? 'Réglages'
-              : 'ضبط',
+          title: lang == null ? 'Settings' : lang == 'en' ? 'Settings' : 'ضبط',
           tabBarIcon: ({focused}) => (
             <Icon color={focused ? colors.text : 'grey'} name="cog" size={22} />
           ),
